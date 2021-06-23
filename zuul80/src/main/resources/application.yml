@@ -1,0 +1,47 @@
+server:
+  port: 80 #1.当前这个子项目运行的端口
+spring:
+  application:
+    name: springcloud-zuul #2.当前子项目启动之后的应用的名字
+  redis:
+    database: 0
+    host: 127.0.0.1
+    port: 6379
+    password:
+    jedis:
+      pool:
+        max-active: 20
+        max-wait: -1
+        max-idle: 10
+        min-idle: 0
+    timeout: 1000
+
+#3.将当前这个zuul网关子系统注册到erueka集群中
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/
+    instance:
+      instance-id: springcloud-zuul-80 #修改Eureka上的默认描述信息
+      prefer-ip-address: true # 为true可以显示服务的ip地址
+
+info:
+  app.name: springcloud-zuul80-mengban #当前这个子系统的应用的名字
+  company.name: doo.mengban.com   #公司的名字
+
+#4.zuul的配置
+zuul:
+  host:
+    connect-timeout-millis: 15000 #HTTP连接超时大于Hystrix的超时时间
+    socket-timeout-millis: 60000   #socket超时
+#  routes:
+#    user-route: #该配置方式中，user-route只是给路由一个名称，可以任意起名。在这里意思为服务user服务提供者的route(路由)
+#      service-id: springcloud-provider-user
+#      path: /zuulproxy-user/**
+#    custromer-fegin-8009-route:
+#      service-id: springcloud-customer-user-8009
+#      path: /zuulproxy-customer-fegin-8009/**
+
+ribbon: #设置ribbon的超时时间小于zuul的超时时间
+  ReadTimeout: 10000
+  ConnectTimeout: 10000
