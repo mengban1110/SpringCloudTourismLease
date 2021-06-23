@@ -11,6 +11,8 @@
     <modules>
         <module>eureka7001</module>
         <module>eureka7002</module>
+        <module>eureka7003</module>
+        <module>BasicModule</module>
     </modules>
 
     <properties>
