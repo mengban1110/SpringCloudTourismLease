@@ -9,14 +9,15 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>cn.doo</groupId>
-    <artifactId>eureka7002</artifactId>
+    <artifactId>eureka7003</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>eureka7002</name>
+    <name>eureka7003</name>
     <description>Demo project for Spring Boot</description>
     <properties>
         <java.version>1.8</java.version>
         <spring-cloud.version>2020.0.3</spring-cloud.version>
     </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.cloud</groupId>

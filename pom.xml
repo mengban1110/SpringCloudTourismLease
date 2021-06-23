@@ -10,9 +10,8 @@
     <packaging>pom</packaging>
     <modules>
         <module>eureka7001</module>
-        <module>eureka7002</module>
-        <module>eureka7003</module>
         <module>BasicModule</module>
+        <module>TourismLease-RepertoryService-8000</module>
     </modules>
 
     <properties>

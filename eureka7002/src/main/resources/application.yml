@@ -11,7 +11,7 @@ eureka:
     register-with-eureka: true #true   #是否要向Eureka注册中心注册自己，自己是服务端，所以设定为false意味着不需要
     fetch-registry: true  #true表示客户端,false是注册中心服务端,单注册中心的时候就为false，集群注册中心的时候就要为true
     service-url: #注册中心监控页面的网址
-      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7003.com:7003/eureka/,
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7003.com:7003/eureka/
   #      defaultZone: http://172.17.0.3:7002/eureka/
   server:
     enable-self-preservation: true #关闭自我保护机制

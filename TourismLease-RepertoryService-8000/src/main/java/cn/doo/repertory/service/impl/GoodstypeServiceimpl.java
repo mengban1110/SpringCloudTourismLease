@@ -7,9 +7,6 @@ import cn.doo.repertory.service.GoodstypeService;
 import cn.doo.repertory.utils.redis.RedisUtil;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.netflix.hystrix.contrib.javanica.annotation.DefaultProperties;
-import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
-import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -19,28 +16,12 @@ import java.util.Map;
 
 @Service
 @Transactional(rollbackFor = Exception.class)
-@DefaultProperties(defaultFallback = "feginGlobalProcessHystrixFallback", commandProperties = {
-        @HystrixProperty(name = "circuitBreaker.enabled", value = "true"), //是否开启断路器
-        @HystrixProperty(name = "circuitBreaker.requestVolumeThreshold", value = "10"), //请求次数
-        @HystrixProperty(name = "circuitBreaker.sleepWindowInMilliseconds", value = "10000"), //时间范围
-        @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "5000"),//每次调用超过5秒自动触发降级
-        @HystrixProperty(name = "circuitBreaker.errorThresholdPercentage", value = "60"), //失败60%也就是6次的时候就跳闸（触发服务降级）
-})
 public class GoodstypeServiceimpl implements GoodstypeService {
 
     @Autowired
     private GoodstypeMapper goodstypeMapper;
     @Autowired
     private RedisUtil jedis;
-
-    /**
-     * 降级处理
-     * @return
-     */
-    public Map<String, Object> feginGlobalProcessHystrixFallback() {
-        return DooUtils.print(500, "服务繁忙,请稍后再试", null, null);
-    }
-
 
     /**
      * @param page
@@ -62,12 +43,6 @@ public class GoodstypeServiceimpl implements GoodstypeService {
      * @desc 新增一个种类
      */
     @Override
-    @HystrixCommand(fallbackMethod = "processHystrixCircuitBreakMethod", commandProperties = {
-            @HystrixProperty(name = "circuitBreaker.enabled", value = "true"), //是否开启断路器
-            @HystrixProperty(name = "circuitBreaker.requestVolumeThreshold", value = "10"), //请求次数
-            @HystrixProperty(name = "circuitBreaker.sleepWindowInMilliseconds", value = "10000"), //时间范围
-            @HystrixProperty(name = "circuitBreaker.errorThresholdPercentage", value = "60"), //失败60%也就是6次的时候就跳闸（触发服务降级）
-    })
     public Map<String, Object> insertOne(GoodstypePojo goodstypePojo) {
         goodstypePojo.setCreatetime(new Date());
         goodstypeMapper.insert(goodstypePojo);
@@ -80,12 +55,6 @@ public class GoodstypeServiceimpl implements GoodstypeService {
      * @desc 修改一个种类
      */
     @Override
-    @HystrixCommand(fallbackMethod = "processHystrixCircuitBreakMethod", commandProperties = {
-            @HystrixProperty(name = "circuitBreaker.enabled", value = "true"), //是否开启断路器
-            @HystrixProperty(name = "circuitBreaker.requestVolumeThreshold", value = "10"), //请求次数
-            @HystrixProperty(name = "circuitBreaker.sleepWindowInMilliseconds", value = "10000"), //时间范围
-            @HystrixProperty(name = "circuitBreaker.errorThresholdPercentage", value = "60"), //失败60%也就是6次的时候就跳闸（触发服务降级）
-    })
     public Map<String, Object> updateOne(GoodstypePojo goodstypePojo) {
         goodstypeMapper.updateById(goodstypePojo);
         return DooUtils.print(0, "修改成功", null, null);
@@ -97,14 +66,9 @@ public class GoodstypeServiceimpl implements GoodstypeService {
      * @desc 删除一个种类
      */
     @Override
-    @HystrixCommand(fallbackMethod = "processHystrixCircuitBreakMethod", commandProperties = {
-            @HystrixProperty(name = "circuitBreaker.enabled", value = "true"), //是否开启断路器
-            @HystrixProperty(name = "circuitBreaker.requestVolumeThreshold", value = "10"), //请求次数
-            @HystrixProperty(name = "circuitBreaker.sleepWindowInMilliseconds", value = "10000"), //时间范围
-            @HystrixProperty(name = "circuitBreaker.errorThresholdPercentage", value = "60"), //失败60%也就是6次的时候就跳闸（触发服务降级）
-    })
     public Map<String, Object> deleteOne(Integer id) {
         goodstypeMapper.deleteById(id);
         return DooUtils.print(0, "删除成功", null, null);
     }
+
 }
