@@ -1,6 +1,6 @@
 package cn.doo.repertory.service.fallbacks;
 
-import cn.doo.repertory.entity.pojo.GoodstypePojo;
+import cn.doo.framework.entity.pojo.GoodstypePojo;
 import cn.doo.repertory.service.GoodstypeService;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RequestBody;

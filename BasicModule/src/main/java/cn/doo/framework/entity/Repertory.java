@@ -1,6 +1,6 @@
-package cn.doo.repertory.entity;
+package cn.doo.framework.entity;
 
-import cn.doo.repertory.entity.pojo.GoodstypePojo;
+import cn.doo.framework.entity.pojo.GoodstypePojo;
 import lombok.Data;
 
 @Data

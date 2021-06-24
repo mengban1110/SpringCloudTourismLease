@@ -1,7 +1,7 @@
 package cn.doo.repertory.controller;
 
 
-import cn.doo.repertory.entity.pojo.GoodstypePojo;
+import cn.doo.framework.entity.pojo.GoodstypePojo;
 import cn.doo.repertory.service.GoodstypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

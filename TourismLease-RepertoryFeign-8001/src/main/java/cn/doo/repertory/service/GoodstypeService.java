@@ -1,7 +1,7 @@
 package cn.doo.repertory.service;
 
 
-import cn.doo.repertory.entity.pojo.GoodstypePojo;
+import cn.doo.framework.entity.pojo.GoodstypePojo;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;

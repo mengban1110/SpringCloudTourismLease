@@ -1,4 +1,4 @@
-package cn.doo.repertory.entity.pojo;
+package cn.doo.framework.entity.pojo;
 
 import lombok.Data;
 
