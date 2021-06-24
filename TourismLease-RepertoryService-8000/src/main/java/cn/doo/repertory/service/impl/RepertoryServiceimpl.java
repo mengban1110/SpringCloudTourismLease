@@ -32,7 +32,8 @@ public class RepertoryServiceimpl implements RepertoryService {
      */
     @Override
     public Map<String, Object> queryAll(Integer page, Integer limit) {
-        return DooUtils.print(0, "请求成功", repertoryMapper.queryAll(page, limit), repertoryMapper.selectCount(null));
+        Integer currentPage = DooUtils.getCurrentPage(page, limit);
+        return DooUtils.print(0, "请求成功", repertoryMapper.queryAll(currentPage, limit), repertoryMapper.selectCount(null));
     }
 
     /**
