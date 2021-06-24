@@ -1,7 +1,7 @@
 package cn.doo.repertory.dao;
 
-import cn.doo.framework.entity.Repertory;
-import cn.doo.framework.entity.pojo.RepertoryPojo;
+import cn.doo.repertory.entity.Repertory;
+import cn.doo.repertory.entity.pojo.RepertoryPojo;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;

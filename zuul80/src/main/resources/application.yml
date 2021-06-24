@@ -34,13 +34,10 @@ zuul:
   host:
     connect-timeout-millis: 15000 #HTTP连接超时大于Hystrix的超时时间
     socket-timeout-millis: 60000   #socket超时
-#  routes:
-#    user-route: #该配置方式中，user-route只是给路由一个名称，可以任意起名。在这里意思为服务user服务提供者的route(路由)
-#      service-id: springcloud-provider-user
-#      path: /zuulproxy-user/**
-#    custromer-fegin-8009-route:
-#      service-id: springcloud-customer-user-8009
-#      path: /zuulproxy-customer-fegin-8009/**
+  routes:
+    repertory-fegin-8001-route:
+      service-id: TourismLease-RepertoryFeign
+      path: /api/repertory/**
 
 ribbon: #设置ribbon的超时时间小于zuul的超时时间
   ReadTimeout: 10000

@@ -9,9 +9,9 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <modules>
-        <module>eureka7001</module>
         <module>BasicModule</module>
         <module>TourismLease-RepertoryService-8000</module>
+        <module>TourismLease-RepertoryFeign-8001</module>
     </modules>
 
     <properties>

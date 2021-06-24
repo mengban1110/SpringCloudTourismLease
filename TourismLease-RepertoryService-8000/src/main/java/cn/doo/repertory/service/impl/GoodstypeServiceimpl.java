@@ -1,10 +1,9 @@
 package cn.doo.repertory.service.impl;
 
-import cn.doo.framework.entity.pojo.GoodstypePojo;
 import cn.doo.framework.utils.DooUtils;
 import cn.doo.repertory.dao.GoodstypeMapper;
+import cn.doo.repertory.entity.pojo.GoodstypePojo;
 import cn.doo.repertory.service.GoodstypeService;
-import cn.doo.repertory.utils.redis.RedisUtil;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,8 +19,6 @@ public class GoodstypeServiceimpl implements GoodstypeService {
 
     @Autowired
     private GoodstypeMapper goodstypeMapper;
-    @Autowired
-    private RedisUtil jedis;
 
     /**
      * @param page
@@ -30,7 +27,6 @@ public class GoodstypeServiceimpl implements GoodstypeService {
      * @desc 获取所有仓库种类
      */
     @Override
-
     public Map<String, Object> queryAll(Integer page, Integer limit) {
         IPage<GoodstypePojo> pagez = new Page<>(page, limit);
         IPage<GoodstypePojo> goodstypePojoIPage = goodstypeMapper.selectPage(pagez, null);

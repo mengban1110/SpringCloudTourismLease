@@ -1,10 +1,10 @@
 package cn.doo.repertory.service.impl;
 
-import cn.doo.framework.entity.pojo.GoodstypePojo;
-import cn.doo.framework.entity.pojo.RepertoryPojo;
 import cn.doo.framework.utils.DooUtils;
 import cn.doo.repertory.dao.GoodstypeMapper;
 import cn.doo.repertory.dao.RepertoryMapper;
+import cn.doo.repertory.entity.pojo.GoodstypePojo;
+import cn.doo.repertory.entity.pojo.RepertoryPojo;
 import cn.doo.repertory.service.RepertoryService;
 import cn.doo.repertory.utils.redis.RedisUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -90,6 +90,51 @@ public class RepertoryServiceimpl implements RepertoryService {
 
         repertoryMapper.deleteById(id);
         return DooUtils.print(0, "删除成功", null, null);
+    }
+
+    /**
+     * @param id
+     * @return
+     * @desc 根据id获取库存信息
+     */
+    @Override
+    public Map<String, Object> getOne(Integer id) {
+        RepertoryPojo repertoryPojo1 = repertoryMapper.selectById(id);
+        if (repertoryPojo1 == null) {
+            return DooUtils.print(-3, "该商品不存在于数据库", null, null);
+        }
+        return DooUtils.print(0, "请求成功", repertoryPojo1, null);
+    }
+
+    /**
+     * @param id
+     * @param count
+     * @param type
+     * @return
+     * @desc 根据id操作数量
+     */
+    @Override
+    public Map<String, Object> countOperation(Integer id, Integer count, Integer type) {
+        RepertoryPojo repertoryPojo1 = repertoryMapper.selectById(id);
+        if (repertoryPojo1 == null) {
+            return DooUtils.print(-3, "该商品不存在于数据库", null, null);
+        }
+        if (type == 1) {
+            //添加商品
+            Integer count1 = repertoryPojo1.getCount();
+            count1 += count;
+            repertoryPojo1.setCount(count1);
+            this.repertoryMapper.updateById(repertoryPojo1);
+        } else if (type == 0) {
+            //减少商品
+            Integer count1 = repertoryPojo1.getCount();
+            count1 -= count;
+            repertoryPojo1.setCount(count1);
+            this.repertoryMapper.updateById(repertoryPojo1);
+        } else {
+            return DooUtils.print(-3, "数据操作类型错误", null, null);
+        }
+        return DooUtils.print(0, "操作成功", null, null);
     }
 
 }

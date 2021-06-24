@@ -1,15 +1,12 @@
 package cn.doo.repertory.controller;
 
 
-import cn.doo.framework.entity.pojo.GoodstypePojo;
 import cn.doo.framework.utils.DooUtils;
+import cn.doo.repertory.entity.pojo.GoodstypePojo;
 import cn.doo.repertory.service.GoodstypeService;
 import com.alibaba.druid.util.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
@@ -49,7 +46,7 @@ public class GoodstypeController {
      * @desc 新增一个种类
      */
     @RequestMapping(value = "/insertOne", method = RequestMethod.POST)
-    public Map<String, Object> insertOne(GoodstypePojo goodstypePojo) {
+    public Map<String, Object> insertOne(@RequestBody GoodstypePojo goodstypePojo) {
         if (StringUtils.isEmpty(goodstypePojo.getName())) {
             return DooUtils.print(-2, "参数异常", null, null);
         }
@@ -63,7 +60,7 @@ public class GoodstypeController {
      * @desc 修改一个种类
      */
     @RequestMapping(value = "/updateOne", method = RequestMethod.POST)
-    public Map<String, Object> updateOne(GoodstypePojo goodstypePojo) {
+    public Map<String, Object> updateOne(@RequestBody GoodstypePojo goodstypePojo) {
         if (StringUtils.isEmpty(goodstypePojo.getName()) || goodstypePojo.getId() == null) {
             return DooUtils.print(-2, "参数异常", null, null);
         }
@@ -77,7 +74,7 @@ public class GoodstypeController {
      * @desc 删除一个种类
      */
     @RequestMapping(value = "/deleteOne", method = RequestMethod.POST)
-    public Map<String, Object> deleteOne(GoodstypePojo goodstypePojo) {
+    public Map<String, Object> deleteOne(@RequestBody GoodstypePojo goodstypePojo) {
         if (goodstypePojo.getId() == null) {
             return DooUtils.print(-2, "参数异常", null, null);
         }

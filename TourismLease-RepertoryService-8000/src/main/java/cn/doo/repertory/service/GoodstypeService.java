@@ -1,7 +1,7 @@
 package cn.doo.repertory.service;
 
 
-import cn.doo.framework.entity.pojo.GoodstypePojo;
+import cn.doo.repertory.entity.pojo.GoodstypePojo;
 
 import java.util.Map;
 

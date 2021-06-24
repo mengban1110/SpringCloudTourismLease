@@ -1,4 +1,4 @@
-package cn.doo.framework.entity.pojo;
+package cn.doo.repertory.entity.pojo;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;

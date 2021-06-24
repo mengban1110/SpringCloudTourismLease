@@ -1,17 +1,13 @@
-package cn.doo.framework.entity.pojo;
+package cn.doo.repertory.entity;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
+import cn.doo.repertory.entity.pojo.GoodstypePojo;
 import lombok.Data;
 
 @Data
-@TableName("repertory")
-public class RepertoryPojo {
+public class Repertory {
     /**
      *
      */
-    @TableId(value = "id",type = IdType.AUTO)
     private Integer id;
 
     /**
@@ -42,6 +38,7 @@ public class RepertoryPojo {
     /**
      *
      */
-    private Integer type;
+    private GoodstypePojo type;
+
 }
 

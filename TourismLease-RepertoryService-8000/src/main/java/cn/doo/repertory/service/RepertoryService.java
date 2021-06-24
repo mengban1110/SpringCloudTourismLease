@@ -1,7 +1,7 @@
 package cn.doo.repertory.service;
 
 
-import cn.doo.framework.entity.pojo.RepertoryPojo;
+import cn.doo.repertory.entity.pojo.RepertoryPojo;
 
 import java.util.Map;
 
@@ -35,4 +35,20 @@ public interface RepertoryService {
      * @desc 删除一个仓库商品
      */
     Map<String, Object> deleteOne(Integer id);
+
+    /**
+     * @param id
+     * @return
+     * @desc 根据id获取库存信息
+     */
+    Map<String, Object> getOne(Integer id);
+
+
+    /**
+     * @param id
+     * @return
+     * @desc 根据id操作数量
+     */
+    Map<String, Object> countOperation(Integer id, Integer count, Integer type);
+
 }

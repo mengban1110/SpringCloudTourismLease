@@ -2,7 +2,7 @@ server:
   port: 8000
 spring:
   application:
-    name: TourismLease-RepertoryService-8000
+    name: TourismLease-RepertoryService
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: com.mysql.jdbc.Driver
