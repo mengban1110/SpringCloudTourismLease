@@ -17,7 +17,7 @@ public interface GoodstypeService {
      * @return
      * @desc 获取所有仓库种类
      */
-    @RequestMapping("/api/goodstype/queryAll")
+    @RequestMapping("/goodstype/queryAll")
     Map<String, Object> queryAll(@RequestParam("page") Integer page, @RequestParam("limit") Integer limit);
 
     /**
@@ -25,7 +25,7 @@ public interface GoodstypeService {
      * @return
      * @desc 新增一个种类
      */
-    @RequestMapping("/api/goodstype/insertOne")
+    @RequestMapping("/goodstype/insertOne")
     Map<String, Object> insertOne(@RequestBody GoodstypePojo goodstypePojo);
 
     /**
@@ -33,7 +33,7 @@ public interface GoodstypeService {
      * @return
      * @desc 修改一个种类
      */
-    @RequestMapping("/api/goodstype/updateOne")
+    @RequestMapping("/goodstype/updateOne")
     Map<String, Object> updateOne(@RequestBody GoodstypePojo goodstypePojo);
 
     /**
@@ -41,6 +41,6 @@ public interface GoodstypeService {
      * @return
      * @desc 删除一个种类
      */
-    @RequestMapping("/api/goodstype/deleteOne")
+    @RequestMapping("/goodstype/deleteOne")
     Map<String, Object> deleteOne(@RequestBody GoodstypePojo goodstypePojo);
 }

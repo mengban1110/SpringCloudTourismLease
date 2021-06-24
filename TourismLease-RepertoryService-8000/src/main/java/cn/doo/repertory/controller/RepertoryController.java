@@ -15,7 +15,7 @@ import java.util.Map;
  */
 @RestController
 @CrossOrigin("*")
-@RequestMapping("/api/repertory")
+@RequestMapping("/repertory")
 public class RepertoryController {
 
     @Autowired

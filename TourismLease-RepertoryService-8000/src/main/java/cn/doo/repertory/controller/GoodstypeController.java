@@ -15,7 +15,7 @@ import java.util.Map;
  */
 @CrossOrigin("*")
 @RestController
-@RequestMapping("/api/goodstype")
+@RequestMapping("/goodstype")
 public class GoodstypeController {
 
     @Autowired

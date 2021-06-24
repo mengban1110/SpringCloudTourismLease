@@ -18,7 +18,7 @@ public interface RepertoryService {
      * @return
      * @desc 获取所有仓库商品
      */
-    @RequestMapping("/api/repertory/queryAll")
+    @RequestMapping("/repertory/queryAll")
     Map<String, Object> queryAll(@RequestParam("page") Integer page, @RequestParam("limit") Integer limit);
 
     /**
@@ -26,7 +26,7 @@ public interface RepertoryService {
      * @return
      * @desc 新增一个仓库商品
      */
-    @RequestMapping("/api/repertory/insertOne")
+    @RequestMapping("/repertory/insertOne")
     Map<String, Object> insertOne(@RequestBody RepertoryPojo repertoryPojo);
 
     /**
@@ -34,7 +34,7 @@ public interface RepertoryService {
      * @return
      * @desc 修改一个仓库商品
      */
-    @RequestMapping("/api/repertory/updateOne")
+    @RequestMapping("/repertory/updateOne")
     Map<String, Object> updateOne(@RequestBody RepertoryPojo repertoryPojo);
 
     /**
@@ -42,7 +42,7 @@ public interface RepertoryService {
      * @return
      * @desc 删除一个仓库商品
      */
-    @RequestMapping("/api/repertory/deleteOne")
+    @RequestMapping("/repertory/deleteOne")
     Map<String, Object> deleteOne(@RequestBody RepertoryPojo repertoryPojo);
 
     /**
@@ -50,7 +50,7 @@ public interface RepertoryService {
      * @return
      * @desc 删除一个仓库商品
      */
-    @RequestMapping("/api/repertory/getOne")
+    @RequestMapping("/repertory/getOne")
     Map<String, Object> getOne(@RequestParam("id") Integer id);
 
     /**
@@ -61,7 +61,7 @@ public interface RepertoryService {
      * @param type
      * @return
      */
-    @RequestMapping("/api/repertory/countOperation")
+    @RequestMapping("/repertory/countOperation")
     Map<String, Object> countOperation(@RequestParam("id") Integer id,@RequestParam("count") Integer count, @RequestParam("type") Integer type);
 
 }
