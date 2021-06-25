@@ -1,12 +1,15 @@
 package cn.doo.zuul.config;
 
+import cn.doo.framework.utils.DooUtils;
 import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
 import com.netflix.zuul.exception.ZuulException;
+import org.apache.commons.codec.binary.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -51,7 +54,7 @@ public class PreCheckFilter extends ZuulFilter {
             if (count != 0 && count < 5) {
                 redisUtil.setEx("blackIp:" + remoteAddr, String.valueOf(count + 1), 10, TimeUnit.MINUTES);
                 //设置返回信息
-                String returnContext = "第"+count+"次非法访问接口,超过五次将封禁1小时";
+                String returnContext = "第" + count + "次非法访问接口,超过五次将封禁1小时";
                 returnResponse(context, response, returnContext);
             } else {
                 redisUtil.setEx("blackIp:" + remoteAddr, "0", 1, TimeUnit.HOURS);
@@ -77,22 +80,20 @@ public class PreCheckFilter extends ZuulFilter {
         HttpServletRequest request = context.getRequest();
         HttpServletResponse response = context.getResponse();
 
-
-        //ip校验
-        if (ipCheck(request)) {
-            System.out.println("本次请求ip地址 没有黑名单中 正常访问...");
-        } else {
-            //封禁ip处理
-            checkIp(context, response);
-            return false;
-        }
+//        //ip校验
+//        if (ipCheck(request)) {
+//            System.out.println("本次请求ip地址 没有黑名单中 正常访问...");
+//        } else {
+//            //封禁ip处理
+//            checkIp(context, response);
+//            return false;
+//        }
 
         //token校验
         if (tokenCheck(request)) {
             return true;
         } else {
-            String returnContext = "本次请求的token值不对，访问失败！";
-            returnResponse(context, response, returnContext);
+            returnResponse(context, response, "未登录");
             return false;
         }
 
@@ -121,17 +122,17 @@ public class PreCheckFilter extends ZuulFilter {
      * @return
      */
     private boolean tokenCheck(HttpServletRequest request) {
-        //假定用户登陆之后java 后台产生的token值就是wyh
-        String access_token = "wyh";
         //获取本次请求发送来的请求头
-        String myToken = request.getHeader("myToken");
-        System.out.println("本次请求的myToken:" + myToken);
-        //判断请求头token是否一致，如果一致就本次过滤通过然后执行调用hystrix-8001查询获取数据
-        if (access_token.equals(myToken)) {
-            System.out.println("本次请求的token正确，放行了...." + "然后就会执行本次URL请求，然后你就可以获取到数据");
-            return true;
+        String myToken = request.getHeader("token");
+        String myUsername = request.getHeader("username");
+
+        Map<String, Object> tokenVerifyResult = getTokenVerifyResult(new TokenVerify(myUsername, myToken), redisUtil);
+
+        System.out.println("tokenVerifyResult = " + tokenVerifyResult);
+        if (tokenVerifyResult != null) {
+            return false;
         }
-        return false;
+        return true;
     }
 
     /**
@@ -166,11 +167,12 @@ public class PreCheckFilter extends ZuulFilter {
         //对该请求禁止路由，也就是禁止访问下游服务
         context.setSendZuulResponse(false);
         //设定responseBody供本次进行响应返回
-        context.setResponseBody("{\"status\":500,\"message\":\"" + info + "\"}");
+        context.setResponseBody("{\"code\":-1,\"msg\":\"" + info + "\"}");
     }
 
     /**
      * 获取真实ip
+     *
      * @param request
      * @return
      */
@@ -192,5 +194,27 @@ public class PreCheckFilter extends ZuulFilter {
             ip = getIpAddress(request);
         }
         return ip;
+    }
+
+    /**
+     * 获取token校验  Redis : token:mengban
+     *
+     * @param tokenVerify
+     * @return
+     */
+    public static Map<String, Object> getTokenVerifyResult(TokenVerify tokenVerify, RedisUtil jedis) {
+        Boolean hasKey = jedis.hasKey(tokenVerify.getRedisKey());
+        //token过期了
+        if (!hasKey) {
+            return DooUtils.print(-1, "未登录", null, null);
+        }
+
+        //获取token 进行对比是否相同
+        String token = jedis.get(tokenVerify.getRedisKey());
+        boolean result = StringUtils.equals(token, tokenVerify.getToken());
+        if (!result) {
+            return DooUtils.print(-1, "未登录", null, null);
+        }
+        return null;
     }
 }

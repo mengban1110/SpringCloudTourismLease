@@ -41,6 +41,8 @@ zuul:
     TourismLease-LeaseService:
       service-id: TourismLease-LeaseService
       path: /api/**
+  #需要忽略的头部信息，不在传播到其他服务
+  sensitive-headers: Access-Control-Allow-Origin
 
 ribbon: #设置ribbon的超时时间小于zuul的超时时间
   ReadTimeout: 10000
