@@ -38,17 +38,9 @@ public interface RepertoryService {
     Map<String, Object> updateOne(@RequestBody RepertoryPojo repertoryPojo);
 
     /**
-     * @param repertoryPojo
-     * @return
-     * @desc 删除一个仓库商品
-     */
-    @RequestMapping("/repertory/deleteOne")
-    Map<String, Object> deleteOne(@RequestBody RepertoryPojo repertoryPojo);
-
-    /**
      * @param id
      * @return
-     * @desc 删除一个仓库商品
+     * @desc 获取一个仓库商品
      */
     @RequestMapping("/repertory/getOne")
     Map<String, Object> getOne(@RequestParam("id") Integer id);

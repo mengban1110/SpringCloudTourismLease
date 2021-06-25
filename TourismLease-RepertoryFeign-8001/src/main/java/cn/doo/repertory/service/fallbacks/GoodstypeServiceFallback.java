@@ -36,22 +36,4 @@ public class GoodstypeServiceFallback implements GoodstypeService {
         return null;
     }
 
-    /**
-     * @param goodstypePojo
-     * @return
-     * @desc 修改一个种类
-     */
-    @Override
-    public Map<String, Object> updateOne(@RequestBody GoodstypePojo goodstypePojo) {
-        return null;
-    }
-
-    /**
-     * @return
-     * @desc 删除一个种类
-     */
-    @Override
-    public Map<String, Object> deleteOne(@RequestBody GoodstypePojo goodstypePojo) {
-        return null;
-    }
 }

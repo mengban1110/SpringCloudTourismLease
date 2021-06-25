@@ -47,16 +47,6 @@ public class RepertoryServiceFallback implements RepertoryService {
     }
 
     /**
-     * @param repertoryPojo
-     * @return
-     * @desc 删除一个仓库商品
-     */
-    @Override
-    public Map<String, Object> deleteOne(@RequestBody RepertoryPojo repertoryPojo) {
-        return null;
-    }
-
-    /**
      * @param id
      * @return
      * @desc 删除一个仓库商品

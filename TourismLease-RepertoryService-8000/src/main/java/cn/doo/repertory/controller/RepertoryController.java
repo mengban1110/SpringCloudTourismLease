@@ -39,6 +39,21 @@ public class RepertoryController {
         return repertoryService.queryAll(page, limit);
     }
 
+
+    /**
+     * @param repertoryPojo
+     * @return
+     * @desc 删除一个仓库商品
+     */
+    @RequestMapping(value = "/deleteOne", method = RequestMethod.POST)
+    public Map<String, Object> deleteOne(RepertoryPojo repertoryPojo) {
+        if (repertoryPojo.getId() == null) {
+            return DooUtils.print(-2, "参数异常", null, null);
+        }
+        return repertoryService.deleteOne(repertoryPojo.getId());
+    }
+
+
     /**
      * @param repertoryPojo
      * @return
@@ -68,18 +83,6 @@ public class RepertoryController {
         return repertoryService.updateOne(repertoryPojo);
     }
 
-    /**
-     * @param repertoryPojo
-     * @return
-     * @desc 删除一个仓库商品
-     */
-    @RequestMapping(value = "/deleteOne", method = RequestMethod.POST)
-    public Map<String, Object> deleteOne(@RequestBody RepertoryPojo repertoryPojo) {
-        if (repertoryPojo.getId() == null) {
-            return DooUtils.print(-2, "参数异常", null, null);
-        }
-        return repertoryService.deleteOne(repertoryPojo.getId());
-    }
 
     /**
      * @param id
@@ -100,7 +103,7 @@ public class RepertoryController {
      * @desc 根据id去减少/增加库存数量 type = 1增加 type = 2减少
      */
     @RequestMapping(value = "/countOperation", method = RequestMethod.GET)
-    public Map<String, Object> countOperation(@RequestParam(value = "id", required = false)  Integer id, @RequestParam(value = "count", required = false)  Integer count, @RequestParam(value = "type", required = false) Integer type) {
+    public Map<String, Object> countOperation(@RequestParam(value = "id", required = false) Integer id, @RequestParam(value = "count", required = false) Integer count, @RequestParam(value = "type", required = false) Integer type) {
         if (id == null || count == null || type == null) {
             return DooUtils.print(-2, "参数异常", null, null);
         }

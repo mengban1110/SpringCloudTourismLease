@@ -28,19 +28,4 @@ public interface GoodstypeService {
     @RequestMapping("/goodstype/insertOne")
     Map<String, Object> insertOne(@RequestBody GoodstypePojo goodstypePojo);
 
-    /**
-     * @param goodstypePojo
-     * @return
-     * @desc 修改一个种类
-     */
-    @RequestMapping("/goodstype/updateOne")
-    Map<String, Object> updateOne(@RequestBody GoodstypePojo goodstypePojo);
-
-    /**
-     * @param goodstypePojo
-     * @return
-     * @desc 删除一个种类
-     */
-    @RequestMapping("/goodstype/deleteOne")
-    Map<String, Object> deleteOne(@RequestBody GoodstypePojo goodstypePojo);
 }

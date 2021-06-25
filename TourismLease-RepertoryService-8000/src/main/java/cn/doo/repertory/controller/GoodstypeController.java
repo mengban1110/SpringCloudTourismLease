@@ -60,7 +60,7 @@ public class GoodstypeController {
      * @desc 修改一个种类
      */
     @RequestMapping(value = "/updateOne", method = RequestMethod.POST)
-    public Map<String, Object> updateOne(@RequestBody GoodstypePojo goodstypePojo) {
+    public Map<String, Object> updateOne(GoodstypePojo goodstypePojo) {
         if (StringUtils.isEmpty(goodstypePojo.getName()) || goodstypePojo.getId() == null) {
             return DooUtils.print(-2, "参数异常", null, null);
         }
@@ -74,7 +74,7 @@ public class GoodstypeController {
      * @desc 删除一个种类
      */
     @RequestMapping(value = "/deleteOne", method = RequestMethod.POST)
-    public Map<String, Object> deleteOne(@RequestBody GoodstypePojo goodstypePojo) {
+    public Map<String, Object> deleteOne(GoodstypePojo goodstypePojo) {
         if (goodstypePojo.getId() == null) {
             return DooUtils.print(-2, "参数异常", null, null);
         }
