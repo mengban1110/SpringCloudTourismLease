@@ -1,0 +1,44 @@
+server:
+  port: 8002
+spring:
+  datasource:
+    druid:
+      url: jdbc:mysql://localhost:3306/tourislease?useUnicode=true&characterEncoding=utf8
+      username: root
+      password: root
+      driver-class-name: com.mysql.jdbc.Driver
+  application:
+    name: Tourismlease-leaseservice
+  main:
+    allow-bean-definition-overriding: true #当遇到同样名字的时候，是否允许覆盖注册
+  freemarker:
+    template-loader-path: classpath:mapper/*.xml
+    cache: false
+    charset: UTF-8
+    check-template-location: true
+    content-type: text/html
+    expose-request-attributes: true
+    expose-session-attributes: true
+    request-context-attribute: request
+    suffix: .ftl
+#mybatis:
+#  type-aliases-package: all.doo.entity
+#  configuration:
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+mybatis-plus:
+  type-aliases-package: all.doo.entity.pojo
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+
+#将sql语句debug打印到控制台
+logging:
+  level:
+    com.java.mapper: debug
+
+eureka:
+  instance:
+    hostname: localhost # 主机名
+  client:
+    service-url:
+      defaultZone:  http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/

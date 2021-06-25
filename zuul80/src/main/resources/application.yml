@@ -38,6 +38,9 @@ zuul:
     TourismLease-RepertoryService:
       service-id: TourismLease-RepertoryService
       path: /api/repertory/**
+    TourismLease-LeaseService:
+      service-id: TourismLease-LeaseService
+      path: /api/**
 
 ribbon: #设置ribbon的超时时间小于zuul的超时时间
   ReadTimeout: 10000
