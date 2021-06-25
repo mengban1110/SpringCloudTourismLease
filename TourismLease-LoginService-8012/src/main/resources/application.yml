@@ -1,0 +1,62 @@
+server:
+  port: 8012  #通过8009端口将消费端开启
+
+eureka:
+  instance:
+    instance-id: TourismLease-LoginService-8012
+  client:
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/
+
+#配置当前spring应用的名字
+spring:
+  application:
+    name: TourismLease-LoginService
+  main:
+    allow-bean-definition-overriding: true #当遇到同样名字的时候，是否允许覆盖注册
+  redis:
+    # Redis 服务器主机
+    host: 127.0.0.1
+    # Redis 服务器端口
+    port: 6379
+    # Redis服务器的登录用户名
+    password:
+    # Redis 数据库索引
+    database: 0
+    jedis:
+      pool:
+        # Redis 最大连接数
+        max-active: 600
+        # Redis 空闲连接的最大数量
+        max-idle: 300
+        # Redis 最小空闲连接数
+        min-idle: 0
+        # Redis 最大阻塞等待时间
+        max-wait: 1000
+    # Redis 读取超时
+    timeout: 3000
+  mail:
+    # SMTP 服务器主机
+    host: smtp.163.com
+    # SMTP 服务器的登录用户
+    username: 17633088040@163.com
+    # SMTP 服务器的登录密码
+    password: PLZSGJFTNKYRZGEX
+    # 设置是否需要认证
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+
+ribbon: #客户端负载均衡的配置
+  ReadTimeout: 10000 #读取服务的时间配置
+  ConnectTimeout: 10000 #客户端连接服务端的时间配置
+
+info:
+  app:
+    name: TourismLease-LoginService-8012
+  company:
+    name: www.LuHoYn.com

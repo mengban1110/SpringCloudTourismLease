@@ -1,0 +1,24 @@
+server:
+  port: 8011
+
+eureka:
+  instance:
+    instance-id: TourismLease-PersonnelFeign-8011
+  client:
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/
+
+#配置当前spring应用的名字
+spring:
+  application:
+    name: TourismLease-PersonnelFeign
+  main:
+    allow-bean-definition-overriding: true #当遇到同样名字的时候，是否允许覆盖注册
+
+ribbon: #客户端负载均衡的配置
+  ReadTimeout: 10000 #读取服务的时间配置
+  ConnectTimeout: 10000 #客户端连接服务端的时间配置
+
+feign:
+  hystrix:
+    enabled: true #如果处理自身的容错就开启。开启方式与生产端不一样。
