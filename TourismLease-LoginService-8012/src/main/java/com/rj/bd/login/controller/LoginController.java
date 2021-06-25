@@ -3,11 +3,13 @@ package com.rj.bd.login.controller;
 import cn.doo.framework.entity.pojo.EmployeePojo;
 import cn.doo.framework.utils.DooUtils;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.rj.bd.service.IFeignPersonnelService;
 import com.rj.bd.login.service.ILoginSerive;
+import com.rj.bd.service.IFeignPersonnelService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.mail.MessagingException;
 import java.io.IOException;

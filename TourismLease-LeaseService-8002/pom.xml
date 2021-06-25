@@ -89,7 +89,7 @@
 
         <dependency>
             <groupId>cn.doo</groupId>
-            <artifactId>TourismLease-RepertoryFeign-8001</artifactId>
+            <artifactId>TourismLease-RepertoryFeign</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
         <dependency>

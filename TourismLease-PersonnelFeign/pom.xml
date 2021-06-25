@@ -9,8 +9,8 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>cn.doo</groupId>
-    <artifactId>TourismLease-RepertoryFeign-8001</artifactId>
+    <groupId>com.rj.bd</groupId>
+    <artifactId>TourismLease-PersonnelFeign</artifactId>
 
     <properties>
         <java.version>1.8</java.version>

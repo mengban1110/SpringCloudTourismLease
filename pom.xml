@@ -11,7 +11,11 @@
     <modules>
         <module>BasicModule</module>
         <module>TourismLease-RepertoryService-8000</module>
-        <module>TourismLease-RepertoryFeign-8001</module>
+        <module>TourismLease-RepertoryFeign</module>
+        <module>TourismLease-PersonnelService-8010</module>
+        <module>TourismLease-PersonnelFeign</module>
+        <module>TourismLease-LoginService-8012</module>
+        <module>TourismLease-LeaseService-8002</module>
     </modules>
 
     <properties>
