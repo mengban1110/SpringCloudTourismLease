@@ -244,8 +244,6 @@ public class LeaseServiceimpl implements LeaseService {
                         e.printStackTrace();
                     }
 
-
-
                     leaseinfos.forEach(temp -> {
                         //如果是这个类型 则取出损坏数量
                         if (temp.getId().equals(lid)) {
@@ -253,6 +251,10 @@ public class LeaseServiceimpl implements LeaseService {
                             repertoryPojo.setCount(repertoryPojo.getCount() + size - temp.getNumber().size());
                         }
                     });
+
+
+
+
 
                 } else {
                     leasePojo.setBreakinfo("null");

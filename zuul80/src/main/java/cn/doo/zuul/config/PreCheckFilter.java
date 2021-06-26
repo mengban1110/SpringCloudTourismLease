@@ -100,6 +100,11 @@ public class PreCheckFilter extends ZuulFilter {
             return true;
         }
 
+        //过滤下载收据
+        if (url.contains("/api/lease/download")) {
+            return true;
+        }
+
         //token校验
         if (tokenCheck(request)) {
             return true;

@@ -44,6 +44,9 @@ zuul:
     TourismLease-PersonnelService:
       service-id: TourismLease-PersonnelService
       path: /api/personnel/**
+    TourismLease-ProcurementService:
+      service-id: TourismLease-ProcurementService
+      path: /api/procurement/**
     TourismLease-LeaseService:
       service-id: TourismLease-LeaseService
       path: /api/**
