@@ -38,9 +38,16 @@ zuul:
     TourismLease-RepertoryService:
       service-id: TourismLease-RepertoryService
       path: /api/repertory/**
+    TourismLease-LoginService:
+      service-id: TourismLease-LoginService
+      path: /api/login/**
+    TourismLease-PersonnelService:
+      service-id: TourismLease-PersonnelService
+      path: /api/personnel/**
     TourismLease-LeaseService:
       service-id: TourismLease-LeaseService
       path: /api/**
+
   #需要忽略的头部信息，不在传播到其他服务
   sensitive-headers: Access-Control-Allow-Origin
 

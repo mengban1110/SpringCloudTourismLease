@@ -2,7 +2,6 @@ package all.doo.service;
 
 
 import all.doo.entity.Leaseinfo;
-import all.doo.entity.TokenVerify;
 import all.doo.entity.pojo.LeaseinfoPojo;
 
 import javax.servlet.http.HttpServletResponse;
@@ -20,7 +19,7 @@ public interface LeaseService {
      * @param limit
      * @return
      */
-    Map<String, Object> queryAll(   String phone, Integer page, Integer limit) throws Exception;
+    Map<String, Object> queryAll(String phone, Integer page, Integer limit) throws Exception;
 
 
     /**
@@ -28,7 +27,7 @@ public interface LeaseService {
      * @return
      * @desc 新增一个订单信息
      */
-    Map<String, Object> insertOne(   List<LeaseinfoPojo> leaseinfo, Integer uid) throws Exception;
+    Map<String, Object> insertOne(List<LeaseinfoPojo> leaseinfo, Integer uid) throws Exception;
 
     /**
      * 结束租赁
@@ -37,19 +36,21 @@ public interface LeaseService {
      * @return
      * @throws Exception
      */
-    Map<String, Object> updateOne(   List<Leaseinfo> leaseinfo, Integer id) throws Exception;
+    Map<String, Object> updateOne(List<Leaseinfo> leaseinfo, Integer id) throws Exception;
 
     /**
      * 删除订单
+     *
      * @param id
      * @return
      */
-    Map<String, Object> deleteOne(   Integer id);
+    Map<String, Object> deleteOne(Integer id);
 
     /**
      * 下载收据
+     *
      * @param id
      * @return
      */
-    Map<String, Object> download(   Integer id, HttpServletResponse response) throws IOException;
+    Map<String, Object> download(Integer id, HttpServletResponse response) throws IOException;
 }

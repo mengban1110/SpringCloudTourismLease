@@ -21,4 +21,6 @@ public interface IDepartmentService {
 
     Map<String, Object> deleteById(Integer departmentid);
 
+    Map<String, Object> query();
+
 }

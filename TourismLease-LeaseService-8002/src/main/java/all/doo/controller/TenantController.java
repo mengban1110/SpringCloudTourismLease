@@ -58,7 +58,6 @@ public class TenantController {
     @RequestMapping(value = "/insertOne", method = RequestMethod.POST)
     public Map<String, Object> insertOne(TokenVerify tokenVerify, TenantPojo tenantPojo) {
 
-
         if (StringUtils.isEmpty(tenantPojo.getName()) || StringUtils.isEmpty(tenantPojo.getPhone())) {
             return DooUtils.print(-2, "参数异常", null, null);
         }
@@ -75,7 +74,6 @@ public class TenantController {
      */
     @RequestMapping(value = "/updateOne", method = RequestMethod.POST)
     public Map<String, Object> updateOne(TokenVerify tokenVerify, TenantPojo tenantPojo) {
-
 
         if (tenantPojo.getId() == null || StringUtils.isEmpty(tenantPojo.getName()) || StringUtils.isEmpty(tenantPojo.getPhone())) {
             return DooUtils.print(-2, "参数异常", null, null);
@@ -94,13 +92,11 @@ public class TenantController {
     @RequestMapping(value = "/deleteOne", method = RequestMethod.POST)
     public Map<String, Object> deleteOne(TokenVerify tokenVerify, String id) {
 
-
         if (StringUtils.isEmpty(id)) {
             return DooUtils.print(-2, "参数异常", null, null);
         }
 
         return tenantService.deleteOne(tokenVerify, id);
     }
-
 
 }

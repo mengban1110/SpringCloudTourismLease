@@ -27,6 +27,16 @@ public class DepartmentController {
 
     /**
      * @desc 获取全部部门
+     * @return
+     */
+    @RequestMapping(value = "/query", method = RequestMethod.GET)
+    public Map<String, Object> query() {
+        return departmentService.query();
+
+    }
+
+    /**
+     * @desc 获取全部部门
      * @param page
      * @param limit
      * @return

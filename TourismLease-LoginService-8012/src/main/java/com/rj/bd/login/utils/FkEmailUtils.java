@@ -68,7 +68,8 @@ public class FkEmailUtils {
         try {
             //设置fk路径目录
 //            String ftl = "D:\\idea-workspaces\\TourismLease\\src\\main\\resources\\templates";
-            String ftl = "C:\\Users\\LuHoYn\\Desktop\\SpringCloudTourismLease-main\\TourismLease-LoginService-8012\\src\\main\\resources\\templates";
+//            String ftl = "C:\\Users\\LuHoYn\\Desktop\\SpringCloudTourismLease-main\\TourismLease-LoginService-8012\\src\\main\\resources\\templates";
+            String ftl = "E:\\ProgramCode\\IDEA_Code\\LearnWorkingSet\\D20210608_Cloud\\SpringCloudTourismLease\\TourismLease-LoginService-8012\\src\\main\\resources\\templates";
             Configuration configuration = new Configuration();
             configuration.setDirectoryForTemplateLoading(new File(ftl));
             Template template = configuration.getTemplate(templateName, "UTF-8");

@@ -79,6 +79,7 @@ public class PreCheckFilter extends ZuulFilter {
         RequestContext context = RequestContext.getCurrentContext();
         HttpServletRequest request = context.getRequest();
         HttpServletResponse response = context.getResponse();
+        String url = context.getRequest().getRequestURI().toLowerCase();
 
 //        //ip校验
 //        if (ipCheck(request)) {
@@ -88,6 +89,16 @@ public class PreCheckFilter extends ZuulFilter {
 //            checkIp(context, response);
 //            return false;
 //        }
+
+        //过滤登录
+        if ("/api/login/login/sendcode".equals(url) || "/api/login/login/login".equals(url)) {
+            return true;
+        }
+
+        //过滤下载图片
+        if (url.contains("/api/personnel/employee/img")) {
+            return true;
+        }
 
         //token校验
         if (tokenCheck(request)) {

@@ -4,6 +4,7 @@ import cn.doo.framework.entity.pojo.EmployeePojo;
 import cn.doo.framework.utils.DooUtils;
 import com.rj.bd.login.utils.FkEmailUtils;
 import com.rj.bd.login.utils.redis.RedisUtil;
+import lombok.SneakyThrows;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
@@ -39,7 +40,14 @@ public class LoginServiceImpl implements ILoginSerive {
             // 设置验证码有效期 5 分钟
             redisUtil.setEx(verificationCode, checkCode, 5, TimeUnit.MINUTES);
 
-            emailUtils.sendVerifyEmail(employeePojo.getEmail(), employeePojo.getEmail(), checkCode);
+            //发送验证码
+            new Thread(new Runnable() {
+                @SneakyThrows
+                @Override
+                public void run() {
+                    emailUtils.sendVerifyEmail(employeePojo.getEmail(), employeePojo.getEmail(), checkCode);
+                }
+            }).run();
 
             return DooUtils.print(0, "验证码发送成功", null, null);
 
@@ -67,7 +75,7 @@ public class LoginServiceImpl implements ILoginSerive {
 
                 hashMap.put("token", token);
 
-                hashMap.put("username", employeePojo.getName());
+                hashMap.put("username", employeePojo.getUsername());
 
                 hashMap.put("avatar", employeePojo.getAvatar());
 

@@ -65,4 +65,10 @@ public class DepartmentServiceImpl implements IDepartmentService {
 
     }
 
+    @Override
+    public Map<String, Object> query() {
+        return DooUtils.print(0, "查询成功", departmentMapper.selectList(null), null);
+
+    }
+
 }

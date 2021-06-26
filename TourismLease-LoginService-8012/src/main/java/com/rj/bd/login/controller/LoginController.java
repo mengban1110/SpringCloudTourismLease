@@ -7,6 +7,7 @@ import com.rj.bd.login.service.ILoginSerive;
 import com.rj.bd.service.IFeignPersonnelService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,6 +17,7 @@ import java.io.IOException;
 import java.util.Map;
 
 @RestController
+@CrossOrigin("*")
 @RequestMapping("/login")
 public class LoginController {
 

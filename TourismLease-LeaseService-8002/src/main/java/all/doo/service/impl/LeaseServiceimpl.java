@@ -244,6 +244,8 @@ public class LeaseServiceimpl implements LeaseService {
                         e.printStackTrace();
                     }
 
+
+
                     leaseinfos.forEach(temp -> {
                         //如果是这个类型 则取出损坏数量
                         if (temp.getId().equals(lid)) {
@@ -355,7 +357,7 @@ public class LeaseServiceimpl implements LeaseService {
         //设置fk路径目录
         String path = System.getProperty("user.dir");
         System.out.println(path);
-        String ftl = path+"\\TourismLease-LeaseService-8002\\src\\main\\resources\\templates";
+        String ftl = path + "\\TourismLease-LeaseService-8002\\src\\main\\resources\\templates";
         Configuration configuration = new Configuration();
         configuration.setDirectoryForTemplateLoading(new File(ftl));
 
@@ -417,7 +419,6 @@ public class LeaseServiceimpl implements LeaseService {
     }
 
 
-
     private Leaseinfo getLeaseinfo(LeaseinfoPojo leaseinfoPojo) throws JsonProcessingException {
 
         //商品id
@@ -472,7 +473,6 @@ public class LeaseServiceimpl implements LeaseService {
         RepertoryPojo repertoryPojo = mapper.readValue(json, RepertoryPojo.class);
 
 
-
         if (repertoryPojo == null) {
             throw new Exception("此产品在库存中不存在");
         } else {
@@ -484,7 +484,7 @@ public class LeaseServiceimpl implements LeaseService {
                 throw new Exception("库存数量不够");
             }
 //            leaseMapper.reduceCount(leaseCount, leaseinfoPojo.getId());
-            repertoryService.countOperation(leaseinfoPojo.getId(),leaseCount,0);
+            repertoryService.countOperation(leaseinfoPojo.getId(), leaseCount, 0);
         }
     }
 

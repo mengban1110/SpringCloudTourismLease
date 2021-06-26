@@ -23,7 +23,6 @@ public class LeaseController {
     @Autowired
     private LeaseService leaseService;
 
-
     /**
      * @param page
      * @param limit
@@ -32,6 +31,7 @@ public class LeaseController {
      */
     @RequestMapping("/queryAll")
     public Map<String, Object> queryAll(Integer page, Integer limit, String phone) throws Exception {
+
         if (page == null) {
             page = 1;
         }
@@ -42,10 +42,8 @@ public class LeaseController {
         return leaseService.queryAll(phone, page, limit);
     }
 
-
-    @RequestMapping(value = "/insertOne" ,method = RequestMethod.POST)
+    @RequestMapping(value = "/insertOne", method = RequestMethod.POST)
     public Map<String, Object> insertOne(@RequestBody List<LeaseinfoPojo> leaseinfoPojo, @RequestParam(name = "uid") Integer uid) throws Exception {
-
 
         if (leaseinfoPojo.size() == 0 || leaseinfoPojo == null) {
             return DooUtils.print(-2, "参数异常", null, null);
@@ -55,13 +53,11 @@ public class LeaseController {
             return DooUtils.print(-2, "参数异常", null, null);
         }
 
-
         return leaseService.insertOne(leaseinfoPojo, uid);
     }
 
     @RequestMapping(value = "/updateOne")
     public Map<String, Object> updateOne(@RequestBody List<Leaseinfo> leaseinfos, Integer id) throws Exception {
-
 
         if (leaseinfos.size() == 0 || leaseinfos == null) {
             return DooUtils.print(-2, "参数异常", null, null);
@@ -88,6 +84,7 @@ public class LeaseController {
 
     /**
      * 收据条
+     *
      * @param id
      * @return
      * @throws Exception

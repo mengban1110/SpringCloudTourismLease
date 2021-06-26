@@ -4,13 +4,12 @@ import cn.doo.framework.utils.DooUtils;
 import com.rj.bd.personnel.entity.pojo.EmployeePojo;
 import com.rj.bd.personnel.service.IEmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.util.Map;
 
 /**
@@ -36,6 +35,18 @@ public class EmployeeController {
     public Map<String, Object> queryByUsernameAndPassword(String username, String password) {
         return employeeService.queryByUsernameAndPassword(username, password);
 
+    }
+
+    /**
+     * @desc 获取头像
+     * @param request
+     * @param response
+     * @param fileName
+     * @return
+     */
+    @RequestMapping(value = "/img/{fileName:.+}", method = RequestMethod.GET)
+    public void downloadPhoto(HttpServletRequest request, HttpServletResponse response, @PathVariable String fileName) throws IOException {
+        DooUtils.downloadPhoto(request, response, fileName);
     }
 
     /**
