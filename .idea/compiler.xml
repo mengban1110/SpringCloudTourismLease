@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="TourismLease-ProcurementService-8113" />
+        <module name="TourismLease-PersonnelService-8010" />
+        <module name="TourismLease-RepertoryService-8000" />
+        <module name="TourismLease-LeaseService-8002" />
+        <module name="BasicModule" />
+        <module name="eureka7003" />
+        <module name="eureka7002" />
+        <module name="eureka7001" />
+        <module name="TourismLease-KafkaFegin" />
+        <module name="TourismLease-LoginService-8012" />
+        <module name="TourismLease-RepertoryFeign" />
+        <module name="kafka" />
+        <module name="config-server-9999" />
+        <module name="zuul80" />
+        <module name="TourismLease-PersonnelFeign" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="BasicModule" target="8" />
+      <module name="config-server-9999" target="8" />
+      <module name="eureka7001" target="1.8" />
+      <module name="eureka7002" target="1.8" />
+      <module name="eureka7003" target="1.8" />
+      <module name="kafka" target="8" />
+      <module name="TourismLease" target="8" />
+      <module name="TourismLease-KafkaFegin" target="8" />
+      <module name="TourismLease-LeaseService-8002" target="8" />
+      <module name="TourismLease-LoginService-8012" target="8" />
+      <module name="TourismLease-PersonnelFeign" target="8" />
+      <module name="TourismLease-PersonnelService-8010" target="8" />
+      <module name="TourismLease-ProcurementService-8113" target="8" />
+      <module name="TourismLease-RepertoryFeign" target="8" />
+      <module name="TourismLease-RepertoryService-8000" target="8" />
+      <module name="zuul80" target="8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="eureka7001" options="-parameters" />
+      <module name="eureka7002" options="-parameters" />
+      <module name="eureka7003" options="-parameters" />
+    </option>
+  </component>
+</project>

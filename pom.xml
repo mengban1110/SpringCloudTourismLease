@@ -17,6 +17,7 @@
         <module>TourismLease-LoginService-8012</module>
         <module>TourismLease-LeaseService-8002</module>
         <module>TourismLease-KafkaFegin</module>
+        <module>config-server-9999</module>
     </modules>
 
     <properties>

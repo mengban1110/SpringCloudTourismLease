@@ -21,6 +21,11 @@ spring:
     expose-session-attributes: true
     request-context-attribute: request
     suffix: .ftl
+  zipkin:
+    base-url: http://localhost:9411/  # 设置zipkin的服务端路径
+  sleuth:
+    sampler:
+      probability: 1 # 采集率 默认 0.1 百分之十
 #mybatis:
 #  type-aliases-package: all.doo.entity
 #  configuration:

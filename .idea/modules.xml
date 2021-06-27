@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/BasicModule/BasicModule.iml" filepath="$PROJECT_DIR$/BasicModule/BasicModule.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/TourismLease.iml" filepath="$PROJECT_DIR$/.idea/TourismLease.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TourismLease-KafkaFegin/TourismLease-KafkaFegin.iml" filepath="$PROJECT_DIR$/TourismLease-KafkaFegin/TourismLease-KafkaFegin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TourismLease-LeaseService-8002/TourismLease-LeaseService-8002.iml" filepath="$PROJECT_DIR$/TourismLease-LeaseService-8002/TourismLease-LeaseService-8002.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TourismLease-LoginService-8012/TourismLease-LoginService-8012.iml" filepath="$PROJECT_DIR$/TourismLease-LoginService-8012/TourismLease-LoginService-8012.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TourismLease-PersonnelFeign/TourismLease-PersonnelFeign.iml" filepath="$PROJECT_DIR$/TourismLease-PersonnelFeign/TourismLease-PersonnelFeign.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TourismLease-PersonnelService-8010/TourismLease-PersonnelService-8010.iml" filepath="$PROJECT_DIR$/TourismLease-PersonnelService-8010/TourismLease-PersonnelService-8010.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TourismLease-ProcurementService-8113/TourismLease-ProcurementService-8113.iml" filepath="$PROJECT_DIR$/TourismLease-ProcurementService-8113/TourismLease-ProcurementService-8113.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TourismLease-RepertoryFeign/TourismLease-RepertoryFeign.iml" filepath="$PROJECT_DIR$/TourismLease-RepertoryFeign/TourismLease-RepertoryFeign.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TourismLease-RepertoryService-8000/TourismLease-RepertoryService-8000.iml" filepath="$PROJECT_DIR$/TourismLease-RepertoryService-8000/TourismLease-RepertoryService-8000.iml" />
+      <module fileurl="file://$PROJECT_DIR$/config-server-9999/config-server-9999.iml" filepath="$PROJECT_DIR$/config-server-9999/config-server-9999.iml" />
+      <module fileurl="file://$PROJECT_DIR$/eureka7001/eureka7001.iml" filepath="$PROJECT_DIR$/eureka7001/eureka7001.iml" />
+      <module fileurl="file://$PROJECT_DIR$/eureka7002/eureka7002.iml" filepath="$PROJECT_DIR$/eureka7002/eureka7002.iml" />
+      <module fileurl="file://$PROJECT_DIR$/eureka7003/eureka7003.iml" filepath="$PROJECT_DIR$/eureka7003/eureka7003.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TourismLease-Kafka-8888/kafka.iml" filepath="$PROJECT_DIR$/TourismLease-Kafka-8888/kafka.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zuul80/zuul80.iml" filepath="$PROJECT_DIR$/zuul80/zuul80.iml" />
+    </modules>
+  </component>
+</project>

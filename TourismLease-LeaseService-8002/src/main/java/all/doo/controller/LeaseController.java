@@ -6,6 +6,8 @@ import all.doo.entity.pojo.LeaseinfoPojo;
 import all.doo.service.LeaseService;
 import all.doo.utils.DooUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
@@ -18,10 +20,14 @@ import java.util.Map;
 @RequestMapping("/lease")
 @CrossOrigin("*")
 @RestController
+@RefreshScope
 public class LeaseController {
 
     @Autowired
     private LeaseService leaseService;
+
+    @Value("${username}")
+    private String username;
 
     /**
      * @param page
@@ -32,6 +38,7 @@ public class LeaseController {
     @RequestMapping("/queryAll")
     public Map<String, Object> queryAll(Integer page, Integer limit, String phone) throws Exception {
 
+        System.out.println(username);
         if (page == null) {
             page = 1;
         }

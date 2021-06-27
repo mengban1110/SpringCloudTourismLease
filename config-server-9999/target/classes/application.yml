@@ -1,0 +1,34 @@
+server:
+  port: 9999
+
+spring:
+  application:
+    name: config-server
+  # spring cloud config
+  cloud:
+    config:
+      server:
+        # git 的 远程仓库地址
+        git:
+          uri: https://gitee.com/sytniuB/spring-cloud-tourism-lease-main.git
+      #          username: #如果是公有的用户名和密码可以忽略
+      #          password:
+      label: master # 分支配置
+  rabbitmq:
+    host: 192.168.200.128
+    username: guest
+    password: guest
+    port: 5672
+    virtual-host: /
+
+eureka:
+  instance:
+    hostname: localhost # 主机名
+  client:
+    service-url:
+      defaultZone:  http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/
+management:
+  endpoints:
+    web:
+      exposure:
+        include: 'bus-refresh'

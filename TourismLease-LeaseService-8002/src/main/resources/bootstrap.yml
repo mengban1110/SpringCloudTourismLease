@@ -1,0 +1,22 @@
+# 配置config-server地址
+# 配置获得配置文件的名称等信息
+spring:
+  cloud:
+    config:
+      # 配置config-server地址
+      uri: http://localhost:9999
+      # 配置获得配置文件的名称等信息
+      name: config # 文件名
+      profile: dev # profile指定，  config-dev.yml
+      label: master # 分支
+  rabbitmq:
+    host: 192.168.200.128
+    username: guest
+    password: guest
+    port: 5672
+    virtual-host: /
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
