@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>TourismLease-ProcurementService-8010</artifactId>
+    <artifactId>TourismLease-ProcurementService-8113</artifactId>
 
     <dependencies>
         <dependency>

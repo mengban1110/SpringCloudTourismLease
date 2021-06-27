@@ -3,19 +3,16 @@ package all.doo.service.impl;
 
 import all.doo.dao.LeaseMapper;
 import all.doo.dao.TenantMapper;
-
 import all.doo.entity.Lease;
-
-import all.doo.entity.Leaseinfo;
 import all.doo.entity.empinfo;
 import all.doo.entity.pojo.LeasePojo;
 import all.doo.entity.pojo.LeaseinfoPojo;
 import all.doo.entity.pojo.TenantPojo;
 import all.doo.service.LeaseService;
 import all.doo.utils.DooUtils;
-
-
 import all.doo.utils.FkExcelUtils;
+import cn.doo.email.EmailService;
+import cn.doo.framework.entity.pojo.Leaseinfo;
 import cn.doo.framework.entity.pojo.RepertoryPojo;
 import cn.doo.repertory.service.RepertoryService;
 import cn.hutool.core.util.IdUtil;
@@ -25,6 +22,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
+import com.rj.bd.service.IFeignPersonnelService;
 import freemarker.template.Configuration;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -60,6 +58,12 @@ public class LeaseServiceimpl implements LeaseService {
 
     @Autowired
     private TenantMapper tenantMapper;
+
+    @Autowired
+    private IFeignPersonnelService feignPersonnelService;
+
+    @Autowired
+    private EmailService emailService;
 
 
     /**
@@ -253,7 +257,12 @@ public class LeaseServiceimpl implements LeaseService {
                     });
 
 
-
+                    Map<String, Object> add = feignPersonnelService.add(leaseinfos);
+                    Object dataJson = add.get("data");
+                    if (dataJson != null) {
+                        Map<String, Object> jsonString = (Map<String, Object>) dataJson;
+                        emailService.sendEmail(jsonString.get("email") + "", "null", 1);
+                    }
 
 
                 } else {

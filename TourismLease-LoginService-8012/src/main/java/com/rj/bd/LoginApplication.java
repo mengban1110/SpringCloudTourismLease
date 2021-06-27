@@ -8,7 +8,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-@EnableFeignClients(basePackages={"com.rj.bd.service"})
+@EnableFeignClients(basePackages={"com.rj.bd.service","cn.doo.email"})
 @EnableCircuitBreaker
 public class LoginApplication {
 

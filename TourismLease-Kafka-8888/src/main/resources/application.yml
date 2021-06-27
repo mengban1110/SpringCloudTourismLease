@@ -1,0 +1,65 @@
+server:
+  port: 8888
+
+spring:
+  application:
+    name: TourismLease-Kafka
+  main:
+    allow-bean-definition-overriding: true #当遇到同样名字的时候，是否允许覆盖注册
+  redis:
+    # Redis 服务器主机
+    host: 127.0.0.1
+    # Redis 服务器端口
+    port: 6379
+    # Redis服务器的登录用户名
+    password:
+    # Redis 数据库索引
+    database: 0
+    jedis:
+      pool:
+        # Redis 最大连接数
+        max-active: 600
+        # Redis 空闲连接的最大数量
+        max-idle: 300
+        # Redis 最小空闲连接数
+        min-idle: 0
+        # Redis 最大阻塞等待时间
+        max-wait: 1000
+    # Redis 读取超时
+    timeout: 3000
+  kafka:
+    bootstrap-servers: 192.168.10.10:9092,192.168.10.20:9092,192.168.10.30:9092 #指定kafka server的地址，集群配多个，中间，逗号隔开
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+    consumer:
+      group-id: test-consumer-group #群组ID
+      enable-auto-commit: true
+      auto-commit-interval: 1000
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+  mail:
+    # SMTP 服务器主机
+    host: smtp.163.com
+    # SMTP 服务器的登录用户
+    username: 17633088040@163.com
+    # SMTP 服务器的登录密码
+    password: PLZSGJFTNKYRZGEX
+    # 设置是否需要认证
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/
+  instance:
+    instance-id: TourismLease-Kafka-8888
+
+info:
+  app.name: TourismLease-Kafka-8888 #显示的应用的名字
+  company.name: doo.mengban.com   #公司的名字

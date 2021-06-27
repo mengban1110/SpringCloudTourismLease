@@ -1,7 +1,7 @@
 package all.doo.service;
 
 
-import all.doo.entity.Leaseinfo;
+import cn.doo.framework.entity.pojo.Leaseinfo;
 import all.doo.entity.pojo.LeaseinfoPojo;
 
 import javax.servlet.http.HttpServletResponse;

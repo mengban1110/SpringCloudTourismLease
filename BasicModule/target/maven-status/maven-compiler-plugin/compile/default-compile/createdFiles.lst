@@ -1,0 +1,14 @@
+cn\doo\framework\entity\Employee.class
+cn\doo\framework\utils\DooUtils.class
+cn\doo\framework\utils\TokenVerify.class
+cn\doo\framework\entity\caigou\Employee.class
+cn\doo\framework\entity\pojo\DepartmentPojo.class
+cn\doo\framework\entity\pojo\Verify.class
+cn\doo\framework\entity\caigou\Facility.class
+cn\doo\framework\entity\pojo\RepertoryPojo.class
+cn\doo\framework\entity\caigou\Purchase.class
+cn\doo\framework\entity\pojo\Leaseinfo.class
+cn\doo\framework\entity\caigou\Species.class
+cn\doo\framework\entity\Repertory.class
+cn\doo\framework\entity\pojo\EmployeePojo.class
+cn\doo\framework\entity\pojo\GoodstypePojo.class

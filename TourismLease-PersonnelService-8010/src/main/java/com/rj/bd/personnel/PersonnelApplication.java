@@ -19,7 +19,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @SpringBootApplication
 // 启动服务熔断
 @EnableCircuitBreaker
-@EnableFeignClients(basePackages = "cn.doo.repertory.service")
+@EnableFeignClients(basePackages = {"cn.doo.repertory.service","cn.doo.email"})
 public class PersonnelApplication {
 
     public static void main(String[] args) {

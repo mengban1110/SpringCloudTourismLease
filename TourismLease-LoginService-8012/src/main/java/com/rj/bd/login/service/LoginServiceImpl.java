@@ -1,10 +1,10 @@
 package com.rj.bd.login.service;
 
+import cn.doo.email.EmailService;
 import cn.doo.framework.entity.pojo.EmployeePojo;
 import cn.doo.framework.utils.DooUtils;
 import com.rj.bd.login.utils.FkEmailUtils;
 import com.rj.bd.login.utils.redis.RedisUtil;
-import lombok.SneakyThrows;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
@@ -23,6 +23,9 @@ public class LoginServiceImpl implements ILoginSerive {
     @Autowired
     private FkEmailUtils emailUtils;
 
+    @Autowired
+    private EmailService emailService;
+
     @Override
     public Map<String, Object> sendCode(String username, String password, EmployeePojo employeePojo) throws MessagingException {
 
@@ -40,14 +43,15 @@ public class LoginServiceImpl implements ILoginSerive {
             // 设置验证码有效期 5 分钟
             redisUtil.setEx(verificationCode, checkCode, 5, TimeUnit.MINUTES);
 
-            //发送验证码
-            new Thread(new Runnable() {
-                @SneakyThrows
-                @Override
-                public void run() {
-                    emailUtils.sendVerifyEmail(employeePojo.getEmail(), employeePojo.getEmail(), checkCode);
-                }
-            }).run();
+            //调用Feign发送验证码
+            emailService.sendEmail(employeePojo.getEmail(),checkCode,0);
+//            new Thread(new Runnable() {
+//                @SneakyThrows
+//                @Override
+//                public void run() {
+//                    emailUtils.sendVerifyEmail(employeePojo.getEmail(), employeePojo.getEmail(), checkCode);
+//                }
+//            }).run();
 
             return DooUtils.print(0, "验证码发送成功", null, null);
 

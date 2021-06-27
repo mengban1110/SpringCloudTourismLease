@@ -1,7 +1,7 @@
 package all.doo.controller;
 
 
-import all.doo.entity.Leaseinfo;
+import cn.doo.framework.entity.pojo.Leaseinfo;
 import all.doo.entity.pojo.LeaseinfoPojo;
 import all.doo.service.LeaseService;
 import all.doo.utils.DooUtils;
