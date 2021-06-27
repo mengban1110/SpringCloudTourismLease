@@ -368,7 +368,8 @@ public class LeaseServiceimpl implements LeaseService {
         //设置fk路径目录
         String path = System.getProperty("user.dir");
         System.out.println(path);
-        String ftl = path + "\\TourismLease-LeaseService-8002\\src\\main\\resources\\templates";
+//        String ftl = path + "\\TourismLease-LeaseService-8002\\src\\main\\resources\\templates";
+        String ftl = "E:\\ProgramCode\\IDEA_Code\\LearnWorkingSet\\D20210608_Cloud\\SpringCloudTourismLease\\TourismLease-LeaseService-8002\\src\\main\\resources\\templates";
         Configuration configuration = new Configuration();
         configuration.setDirectoryForTemplateLoading(new File(ftl));
 
